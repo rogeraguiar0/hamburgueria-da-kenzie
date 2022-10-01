@@ -1,0 +1,21 @@
+.btn-df {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-pramary);
+  color: #f5f5f5;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn-df:active {
+  background-color: var(--color-pramary-opacity);
+  transition: 0.4s;
+}
+
+@media (min-width: 768px) {
+  .btn-df:hover {
+    background-color: var(--color-primary-opacity);
+    transition: 0.4s;
+  }
+}
