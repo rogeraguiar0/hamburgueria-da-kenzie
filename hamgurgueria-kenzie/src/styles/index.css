@@ -19,3 +19,12 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 40px;
+  }
+}

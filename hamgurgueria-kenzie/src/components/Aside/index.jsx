@@ -4,7 +4,7 @@ import Total from "./Total";
 function Aside({ cart, setCart, total, setTotal, updateProducts }) {
   function handleRemove(index) {
     setCart(cart.filter((elem, elemIndex) => elemIndex !== index));
-    setTotal(total - updateProducts[index].price);
+    setTotal(total - cart[index].price);
   }
 
   return (

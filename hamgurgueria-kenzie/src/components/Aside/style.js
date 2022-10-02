@@ -8,20 +8,25 @@ export const Container = styled.aside`
 
   .title {
     padding-left: 10px;
-    height: 50px;
+    height: 45px;
     width: 100%;
     display: flex;
     align-items: center;
     border-radius: 4px 4px 0 0;
     background-color: var(--color-primary);
     color: var(--color-grey-1);
+    font-size: var(--text-size-body);
   }
 
   & > ul {
     width: 100%;
-    height: 80%;
+    height: 65%;
     background-color: var(--color-grey-1);
     overflow-y: auto;
+  }
+
+  @media (min-width: 768px) {
+    width: 250px;
   }
 `;
 
@@ -66,4 +71,12 @@ export const Empty = styled.div`
   height: 80%;
   background-color: var(--color-grey-1);
   text-align: center;
+
+  & > h3 {
+    font-size: var(--text-size-body);
+  }
+
+  & > p {
+    font-size: var(--text-size-caption);
+  }
 `;

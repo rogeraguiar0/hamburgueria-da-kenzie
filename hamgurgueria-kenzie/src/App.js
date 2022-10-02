@@ -13,7 +13,8 @@ function App() {
   const updateProducts = products.filter((elem) => {
     return search === ""
       ? true
-      : elem.name.includes(search) || elem.category.includes(search);
+      : elem.name.toLowerCase().includes(search.toLowerCase()) ||
+          elem.category.toLowerCase().includes(search.toLowerCase());
   });
 
   useEffect(() => {

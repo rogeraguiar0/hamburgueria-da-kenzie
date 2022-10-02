@@ -1,42 +1,17 @@
-import {
-  Container,
-  Card,
-  ImageContainer,
-  DescriptionContainer,
-  NotFound,
-} from "./style.js";
+import { Container, NotFound } from "./style.js";
+import List from "./List";
 
 function Main({ updateProducts, cart, setCart, total, setTotal }) {
-  function handleCart(index) {
-    setCart([...cart, updateProducts[index]]);
-    setTotal(total + updateProducts[index].price);
-  }
-
   return (
     <Container>
       {updateProducts.length ? (
-        <ul>
-          {updateProducts.map((elem, index) => (
-            <Card key={elem.id}>
-              <ImageContainer>
-                <img src={elem.img} alt="" />
-              </ImageContainer>
-              <DescriptionContainer>
-                <h4>{elem.name}</h4>
-                <p>{elem.category}</p>
-                <span>
-                  {elem.price.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                </span>
-                <button onClick={() => handleCart(index)} className="btn-df">
-                  Adicionar
-                </button>
-              </DescriptionContainer>
-            </Card>
-          ))}
-        </ul>
+        <List
+          updateProducts={updateProducts}
+          cart={cart}
+          setCart={setCart}
+          total={total}
+          setTotal={setTotal}
+        />
       ) : (
         <NotFound>
           <h3>Nenhum item foi encontrado!</h3>
