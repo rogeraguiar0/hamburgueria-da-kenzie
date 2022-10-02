@@ -1,5 +1,6 @@
 .btn-df {
   padding: 8px;
+  width: fit-content;
   border: none;
   border-radius: 4px;
   background-color: var(--color-primary);

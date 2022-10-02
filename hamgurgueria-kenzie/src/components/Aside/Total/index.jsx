@@ -1,13 +1,25 @@
 import Container from "./style.js";
 
-function Total() {
+function Total({ setCart, total, setTotal }) {
+  function handleRemoveAll() {
+    setCart([]);
+    setTotal(0);
+  }
+
   return (
     <Container>
       <div>
         <p>Total</p>
-        <span>R$ 40,00</span>
+        <span>
+          {total.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
       </div>
-      <button className="btn-vr">Remover todos</button>
+      <button onClick={handleRemoveAll} className="btn-vr">
+        Remover todos
+      </button>
     </Container>
   );
 }

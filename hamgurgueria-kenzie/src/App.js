@@ -11,7 +11,9 @@ function App() {
   const [total, setTotal] = useState(0);
 
   const updateProducts = products.filter((elem) => {
-    return search === "" ? true : elem.name.includes(search);
+    return search === ""
+      ? true
+      : elem.name.includes(search) || elem.category.includes(search);
   });
 
   useEffect(() => {
@@ -27,7 +29,9 @@ function App() {
       <div className="container">
         <Main
           updateProducts={updateProducts}
+          cart={cart}
           setCart={setCart}
+          total={total}
           setTotal={setTotal}
         />
         <Aside
@@ -35,6 +39,7 @@ function App() {
           setCart={setCart}
           total={total}
           setTotal={setTotal}
+          updateProducts={updateProducts}
         />
       </div>
     </div>
