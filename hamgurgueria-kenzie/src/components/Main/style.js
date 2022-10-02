@@ -5,14 +5,14 @@ const Container = styled.main`
   width: 90%;
   height: 100%;
 
-  ul {
+  & > ul {
     height: 100%;
     width: 100%;
     display: flex;
     overflow-x: auto;
   }
 
-  li {
+  & ul li {
     margin: 5px;
     height: 200px;
     min-width: 220px;

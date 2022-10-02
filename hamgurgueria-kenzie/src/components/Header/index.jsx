@@ -2,12 +2,12 @@ import logo from "../../assets/logo.svg";
 import Search from "./Search";
 import Container from "./style.js";
 
-function Header() {
+function Header({ setSearch }) {
   return (
     <Container>
       <div>
         <img src={logo} alt="Burguer Kenzie Logo" />
-        <Search />
+        <Search setSearch={setSearch} />
       </div>
     </Container>
   );

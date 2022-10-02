@@ -1,15 +1,41 @@
+import { useState, useEffect } from "react";
 import "./styles/index.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Aside from "./components/Aside";
 
 function App() {
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  const updateProducts = products.filter((elem) => {
+    return search === "" ? true : elem.name.includes(search);
+  });
+
+  useEffect(() => {
+    fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
+      .then((resp) => resp.json())
+      .then((resp) => setProducts(resp))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div className="app">
-      <Header />
+      <Header setSearch={setSearch} />
       <div className="container">
-        <Main />
-        <Aside />
+        <Main
+          updateProducts={updateProducts}
+          setCart={setCart}
+          setTotal={setTotal}
+        />
+        <Aside
+          cart={cart}
+          setCart={setCart}
+          total={total}
+          setTotal={setTotal}
+        />
       </div>
     </div>
   );

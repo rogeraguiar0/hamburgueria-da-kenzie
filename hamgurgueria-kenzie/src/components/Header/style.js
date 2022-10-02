@@ -16,7 +16,7 @@ const Container = styled.header`
     justify-content: space-around;
   }
 
-  img {
+  & > div > img {
     padding-top: 10px;
   }
 
@@ -29,7 +29,7 @@ const Container = styled.header`
       flex-direction: row;
     }
 
-    img {
+    & > div > img {
       padding: 0;
     }
   }
