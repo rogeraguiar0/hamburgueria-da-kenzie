@@ -1,9 +1,34 @@
 import { Container, ImageContainer, DescriptionContainer } from "./style.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Card({ updateProducts, cart, setCart, total, setTotal }) {
   function handleCart(index) {
-    setCart([...cart, updateProducts[index]]);
-    setTotal(total + updateProducts[index].price);
+    if (cart.includes(updateProducts[index])) {
+      toast.error("Não é permitido adicionar itens duplicados no carrinho!", {
+        position: "top-center",
+        autoClose: 1500,
+        theme: "colored",
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Item adicionado ao carrinho!", {
+        position: "top-center",
+        autoClose: 1500,
+        theme: "colored",
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      setCart([...cart, updateProducts[index]]);
+      setTotal(total + updateProducts[index].price);
+    }
   }
 
   return updateProducts.map((elem, index) => {
@@ -25,6 +50,7 @@ function Card({ updateProducts, cart, setCart, total, setTotal }) {
             Adicionar
           </button>
         </DescriptionContainer>
+        <ToastContainer />
       </Container>
     );
   });
