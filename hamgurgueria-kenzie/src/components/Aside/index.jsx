@@ -1,8 +1,20 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Container, Card, Empty } from "./style.js";
 import Total from "./Total";
 
-function Aside({ cart, setCart, total, setTotal, updateProducts }) {
+function Aside({ cart, setCart, total, setTotal }) {
   function handleRemove(index) {
+    toast.success("Item removido com sucesso!", {
+      position: "top-center",
+      autoClose: 1500,
+      theme: "colored",
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
     setCart(cart.filter((elem, elemIndex) => elemIndex !== index));
     setTotal(total - cart[index].price);
   }
@@ -29,6 +41,7 @@ function Aside({ cart, setCart, total, setTotal, updateProducts }) {
             ))}
           </ul>
           <Total setCart={setCart} total={total} setTotal={setTotal} />
+          <ToastContainer />
         </>
       ) : (
         <Empty>

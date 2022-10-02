@@ -1,7 +1,19 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Container from "./style.js";
 
 function Total({ setCart, total, setTotal }) {
   function handleRemoveAll() {
+    toast("Carrinho limpo!", {
+      position: "top-center",
+      autoClose: 1500,
+      theme: "colored",
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
     setCart([]);
     setTotal(0);
   }
@@ -20,6 +32,7 @@ function Total({ setCart, total, setTotal }) {
       <button onClick={handleRemoveAll} className="btn-vr">
         Remover todos
       </button>
+      <ToastContainer />
     </Container>
   );
 }
