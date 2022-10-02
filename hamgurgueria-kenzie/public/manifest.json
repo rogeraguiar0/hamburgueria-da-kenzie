@@ -1,0 +1,9 @@
+{
+  "short_name": "Burguer Kenzie",
+  "name": "Hamburgueria da Kenzie",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#27AE60",
+  "background_color": "#ffffff"
+}

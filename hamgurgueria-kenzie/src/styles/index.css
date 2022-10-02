@@ -1,0 +1,30 @@
+@import "./reset.css";
+@import "./global.css";
+@import "./buttons.css";
+
+.app {
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  background-color: var(--color-grey-1);
+}
+
+.container {
+  height: 100%;
+  max-height: 80%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 40px;
+  }
+}
